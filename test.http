@@ -1,0 +1,23 @@
+### Test Case 1: Mengambil Produk dari DB Nyata (ID: 1)
+GET http://localhost:8080/order/1
+Accept: application/json
+
+###
+
+### Test Case 2: Mengambil Produk yang Tidak Ada di DB (ID: 99)
+GET http://localhost:8080/order/99
+Accept: application/json
+
+###
+
+### Test Case 3: Menguji Validasi Input (ID berupa teks)
+GET http://localhost:8080/order/sepatu
+Accept: application/json
+
+###
+
+### Test Case 4: Simulasi Flash Sale Checkout (Potong Stok Real DB)
+POST http://localhost:8080/checkout
+Content-Type: application/x-www-form-urlencoded
+
+product_id=1

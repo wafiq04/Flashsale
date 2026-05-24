@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package proto;
+
+// Ini menentukan di mana kode Go hasil kompilasi akan diletakkan
+option go_package = "product-service/proto";
+
+// Menentukan service gRPC beserta fungsi-fungsi di dalamnya
+service ProductService {
+    rpc GetProduct (ProductRequest) returns (ProductResponse);
+}
+
+// Format data yang dikirim oleh Order Service (Request)
+message ProductRequest {
+    int32 id = 1;
+}
+
+// Format data yang dikembalikan oleh Product Service (Response)
+message ProductResponse {
+    int32 id = 1;
+    string name = 2;
+    int32 price = 3;
+    int32 stock = 4;
+}
